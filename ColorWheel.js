@@ -67,8 +67,9 @@ export class ColorWheel extends Component {
           this.forceUpdate('#ffffff')
         }
 
+        // This line wasn't originally here in the Cutecle app code
         if (this.props.onColorChangeComplete) {
-          this.props.onColorChangeComplete(this.state.hsv);
+          this.props.onColorChangeComplete(this.state.currentColor);
         }
       },
     })
@@ -205,7 +206,7 @@ export class ColorWheel extends Component {
         onLayout={nativeEvent => this.onLayout(nativeEvent)}
         style={[styles.coverResponder, this.props.style]}>
         <Image
-          style={[styles.img, 
+          style={[styles.img,
                   {
                     height: radius * 2 - this.props.thumbSize,
                     width: radius * 2 - this.props.thumbSize
